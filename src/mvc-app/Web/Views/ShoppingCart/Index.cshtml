@@ -1,0 +1,94 @@
+﻿@{
+    ViewData["Title"] = "Giỏ hàng";
+}
+@{
+    var total = 0;
+}
+<!-- Shoping Cart Section Begin -->
+<section class="shoping-cart spad">
+    <div class="container">
+        <form method="post" action="@Url.Action("CreateOrder", "Order")" id="form-order">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="shoping__cart__table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class="shoping__product">Sản phẩm</th>
+                                    <th>Giá</th>
+                                    <th>Số lượng</th>
+                                    <th>Thành tiền</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.Carts)
+                                {
+                                    <tr>
+                                        <td class="shoping__cart__item" style="text-align: left !important">
+                                            <input type="hidden" value="@item.Product.Id" name="ProductId" />
+                                            <input type="hidden" value="@item.Id" name="CartId" />
+                                            <img src="~/img/product/@item.Product.Image" alt="" style="width:25%; margin-right:0">
+                                            <h5>@item.Product.Name</h5>
+                                        </td>
+                                        <td class="shoping__cart__price">
+                                            @item.Product.Price.ToString("0#,##0")đ
+                                        </td>
+                                        <td class="shoping__cart__quantity">
+                                            <div class="quantity">
+                                                <div>
+                                                    <input type="number" value="@item.Quantity" name="Quantity" min="1" 
+                                                    style="padding: 4px 8px;width: 50%;text-align: center;" />
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="shoping__cart__total">
+                                            @{
+                                                total += item.Product.Price * item.Quantity;
+                                            }
+                                            @((item.Product.Price * item.Quantity).ToString("0#,##0"))đ
+                                        </td>
+                                        <td class="shoping__cart__item__close">
+                                            <a asp-controller="ShoppingCart" asp-action="DeleteCart" asp-route-id="@item.Id"><span class="icon_close"></span></a> 
+                                        </td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="shoping__cart__btns">
+                        <a asp-controller="Home" asp-action="Index" class="primary-btn cart-btn">TIẾP TỤC MUA SẮM</a>
+                        <a href="javascript:{}" class="primary-btn cart-btn cart-btn-right" onclick="updateCart()">
+                            <span class="icon_loading"></span>
+                            Cập nhật giỏ hàng
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="shoping__checkout">
+                        <h5>Địa chỉ giao hàng</h5>
+                        <input name="Address" required  type="text" placeholder="Nhập địa chỉ giao hàng" style="padding: 4px 8px; width:100%"  />
+                        <p style="color:red" id="checkAddress"></p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="shoping__checkout">
+                        <h5>Tổng giỏ hàng</h5>
+                        <ul>
+                            <li>Tổng tiền <span>@(total.ToString("0#,##0"))đ</span></li>
+                        </ul>
+                        <button type="submit" class="primary-btn" style="border:none">Đặt hàng</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+</section>
+<!-- Shoping Cart Section End -->

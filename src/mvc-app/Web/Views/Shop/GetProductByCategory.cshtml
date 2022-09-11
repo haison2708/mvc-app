@@ -1,0 +1,68 @@
+﻿@using Web.ViewModels
+@{
+    ViewData["Title"] = "Loại sản phẩm";
+}
+
+
+<!-- Product Section Begin -->
+<section class="product spad" style="padding: 0px !important;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-5">
+                <div class="sidebar">
+                    <div class="sidebar__item">
+                        <h4>Loại sản phẩm</h4>
+                        <ul>
+                            @foreach (var item in ViewData["categories"] as IList<CategoryViewModel>)
+                            {
+                                @foreach (var i in item.Categories)
+                                {
+                                    <li><a asp-controller="Shop" asp-action="GetProductByCategory" asp-route-categoryId="@i.Id">@i.Name</a></li>
+                                }
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-7">
+                <div class="filter__item">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-5">
+                        </div>
+                        <div class="col-lg-4 col-md-4">
+                            <div class="filter__found">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row">
+                    @foreach (var item in Model.Products)
+                    {
+                        <form method="get" action="@Url.Action("AddCart", "ShoppingCart")" style="display:none" id="form-@item.Id">
+                            <input type="hidden" name="ProductId" value="@item.Id" />
+                            <input type="hidden" name="Quantity" value="1" />
+                        </form>
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="product__item">
+                                <div class="product__item__pic set-bg" data-setbg="../../img/product/@item.Image">
+                                    <ul class="product__item__pic__hover">
+                                        <li><a href="javascript:{}" onclick="submitProductId(@item.Id)"><i class="fa fa-heart"></i></a></li>
+                                        <li><a href="javascript:{}" onclick="submitProductId(@item.Id)"><i class="fa fa-retweet"></i></a></li>
+                                        <li><a href="javascript:{}" onclick="submitProductId(@item.Id)" id="addCart-@item.Id"><i class="fa fa-shopping-cart"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="product__item__text">
+                                    <h6><a asp-controller="Shop" asp-action="GetProductByCategory" asp-route-id="@item.Id">@item.Name</a></h6>
+                                    <h5>@item.Price.ToString("0#,##0")đ</h5>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Product Section End -->

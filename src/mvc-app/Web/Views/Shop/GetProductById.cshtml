@@ -1,0 +1,125 @@
+﻿@{
+    ViewData["Title"] = "Chi tiết sản phẩm";
+}
+
+<!-- Product Details Section Begin -->
+<section class="product-details spad" style="padding:0">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
+                <div class="product__details__pic">
+                    <div class="product__details__pic__item">
+                        <img class="product__details__pic__item--large"
+                             src="~/img/product/@Model.Product.Image" alt="" style="width:70% !important; min-width:unset !important; max-width:unset !important; display:block; margin: 0 auto">
+                    </div>
+                    <div class="product__details__pic__slider owl-carousel">
+                        <img data-imgbigurl="img/product/details/product-details-2.jpg"
+                             src="img/product/details/thumb-1.jpg" alt="">
+                        <img data-imgbigurl="img/product/details/product-details-3.jpg"
+                             src="img/product/details/thumb-2.jpg" alt="">
+                        <img data-imgbigurl="img/product/details/product-details-5.jpg"
+                             src="img/product/details/thumb-3.jpg" alt="">
+                        <img data-imgbigurl="img/product/details/product-details-4.jpg"
+                             src="img/product/details/thumb-4.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6">
+                <div class="product__details__text">
+                    <h3>@Model.Product.Name</h3>
+                    <div class="product__details__price">@Model.Product.Price.ToString("0#,##0")đ</div>
+                    @* <p>
+                        Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vestibulum ac diam sit amet quam
+                        vehicula elementum sed sit amet dui. Sed porttitor lectus nibh. Vestibulum ac diam sit amet
+                        quam vehicula elementum sed sit amet dui. Proin eget tortor risus.
+                        </p>*@
+                    <div class="product__details__quantity">
+                        <form method="get" action="@Url.Action("AddCart", "ShoppingCart")" style="display:none" id="form-@Model.Product.Id">
+                            <input type="hidden" name="ProductId" value="@Model.Product.Id" />
+                            <input type="hidden" name="Quantity" value="1" id="qty-submit" />
+                        </form>
+
+                        <div class="quantity">
+                            <input type="number" value="1" name="Quantity" min="1" id="pro-qty"
+                                   style="padding: 4px 8px;width: 50%;text-align: center;" />
+                        </div>
+                    </div>
+                    <a href="javascript:{}" onclick="submitProductId(@Model.Product.Id)" class="primary-btn">THÊM VÀO GIỎ HÀNG</a>
+                    <ul>
+                        <li><b>Trạng thái</b> <span>Còn hàng</span></li>
+                        <li><b>Thương hiệu</b> <span>@Model.Product.Brand</span></li>
+                        @*<li><b>Shipping</b> <span>01 day shipping. <samp>Free pickup today</samp></span></li>
+                            <li><b>Weight</b> <span>0.5 kg</span></li>*@
+                        <li>
+                            <b>Share on</b>
+                            <div class="share">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                                <a href="#"><i class="fa fa-pinterest"></i></a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-lg-12" style="padding-top: 0;">
+                <div class="product__details__tab" style="padding-top: 0;">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab"
+                               aria-selected="true">Chi tiết</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                            <div class="product__details__tab__desc">
+                                @Html.Raw(Model.Product.Description);
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Product Details Section End -->
+<!-- Related Product Section Begin -->
+<section class="related-product">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title related__product__title">
+                    <h2>Sản Phẩm Liên Quan</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var item in Model.RelatedProduct)
+            {
+                <form method="get" action="@Url.Action("AddCart", "ShoppingCart")" style="display:none" id="form-@item.Id">
+                    <input type="hidden" name="ProductId" value="@item.Id"/>
+                    <input type="hidden" name="Quantity" value="1"/>
+                </form>
+
+                    <div class="col-lg-3 col-md-4 col-sm-6 mix filter-@item.Category.Id">
+                        <div class="featured__item">
+                            <div class="featured__item__pic set-bg" data-setbg="../../img/product/@item.Image">
+                                <ul class="featured__item__pic__hover">
+                                    <li><a href="javascript:{}" onclick="submitProductId(@item.Id)"><i class="fa fa-heart"></i></a></li>
+                                    <li><a href="javascript:{}" onclick="submitProductId(@item.Id)"><i class="fa fa-retweet"></i></a></li>
+                                    <li><a href="javascript:{}" onclick="submitProductId(@item.Id)" id="addCart-@item.Id"><i class="fa fa-shopping-cart"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="featured__item__text">
+                                <h6><a asp-controller="Shop" asp-action="GetProductById" asp-route-id="@item.Id">@item.Name</a></h6>
+                                <h5>@item.Price.ToString("0#,##0")đ</h5>
+                            </div>
+                        </div>
+                    </div>
+            }
+        </div>
+    </div>
+</section>
+<!-- Related Product Section End -->

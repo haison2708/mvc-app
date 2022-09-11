@@ -1,0 +1,59 @@
+﻿@{
+    ViewData["Title"] = "Đăng ký";
+}
+
+@if (Model != null)
+{
+    foreach(var i in Model)
+    {
+        <h1>@i</h1>       
+    }
+}
+<section class="checkout spad" style="padding-top:0px">
+    <div class="container">
+        <div class="checkout__form">
+            <h4>Đăng nhập</h4>
+            <form action="/Account/Register" method="post">
+                <div class="row">
+                    <div class="col-lg-3 col-md-3"></div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="checkout__input">
+                                    <p>Tài khoản<span>*</span></p>
+                                    <input type="text" name="UserName">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="checkout__input">
+                                    <p>Mật khẩu<span>*</span></p>
+                                    <input type="password" name="PassWord">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="checkout__input">
+                                    <p>Email<span>*</span></p>
+                                    <input type="email" name="Email">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="checkout__input">
+                                    <p>Số điện thoại<span>*</span></p>
+                                    <input type="tel" name="PhoneNumber">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="checkout__input">
+                            <input type="submit" value="Đăng ký">
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3"></div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
