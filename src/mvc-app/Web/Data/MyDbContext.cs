@@ -18,5 +18,9 @@ namespace Web.Data
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
+
+        public DbSet<Web.Models.Cart>? Cart { get; set; }
+
+        public DbSet<Web.Models.Order>? Order { get; set; }
     }
 }

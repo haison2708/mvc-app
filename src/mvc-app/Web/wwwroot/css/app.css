@@ -41,4 +41,7 @@ table td span {
 .footer__widget li a {
     font-size: 16px !important;
 }
-    
+
+col-lg-6 a:hover {
+    color: #007bff !important;
+}

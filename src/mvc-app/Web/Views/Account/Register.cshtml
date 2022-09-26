@@ -12,8 +12,12 @@
 <section class="checkout spad" style="padding-top:0px">
     <div class="container">
         <div class="checkout__form">
-            <h4>Đăng nhập</h4>
+            <h4>Đăng ký</h4>
             <form action="/Account/Register" method="post">
+                 <div class="row">
+                      <div class="col-lg-3 col-md-3"></div>
+                      <div  style="color:red; padding-left:14px; padding-bottom:15px" class="col-lg-6 col-md-6">@ViewData["ErrorRegiste"]</div></div>
+                      
                 <div class="row">
                     <div class="col-lg-3 col-md-3"></div>
                     <div class="col-lg-6 col-md-6">
@@ -21,13 +25,13 @@
                             <div class="col-lg-6">
                                 <div class="checkout__input">
                                     <p>Tài khoản<span>*</span></p>
-                                    <input type="text" name="UserName">
+                                    <input type="text" name="UserName" required>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="checkout__input">
                                     <p>Mật khẩu<span>*</span></p>
-                                    <input type="password" name="PassWord">
+                                    <input type="password" name="PassWord" required>
                                 </div>
                             </div>
                         </div>
@@ -35,14 +39,21 @@
                             <div class="col-lg-6">
                                 <div class="checkout__input">
                                     <p>Email<span>*</span></p>
-                                    <input type="email" name="Email">
+                                    <input type="email" name="Email" required>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="checkout__input">
                                     <p>Số điện thoại<span>*</span></p>
-                                    <input type="tel" name="PhoneNumber">
+                                    <input type="tel" name="PhoneNumber" required>
                                 </div>
+                            </div>
+                        </div>
+                         <div class="row" style="padding-left:12px; padding-bottom:15px;margin-top: -15px;">
+                            <div class="col-lg-6">
+                            </div>
+                            <div class="col-lg-6">
+                                 <a asp-controller="Account" asp-action="ForgotPassword">Quên mật khẩu</a>
                             </div>
                         </div>
                         <div class="checkout__input">

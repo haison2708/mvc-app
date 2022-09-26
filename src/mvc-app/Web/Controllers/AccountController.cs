@@ -34,7 +34,9 @@ public class AccountController : BaseController
     public async Task<IActionResult> Register([FromForm] RegisterViewModel registerViewModel)
     {
 
-        if (ModelState.IsValid)
+        var existUser = await _userManager.FindByNameAsync(registerViewModel.UserName);
+
+        if (existUser != null)
         {
             var user = new User
             {
@@ -45,10 +47,10 @@ public class AccountController : BaseController
             var result = await _userManager.CreateAsync(user, registerViewModel.PassWord);
             if (result.Succeeded)
             {
-                await _signInManager.SignInAsync(user, false);
-                return RedirectToAction(nameof(HomeController.Index), "Home");
+                return RedirectToAction("Login");
             }
         }
+        @ViewData["ErrorRegiste"] = "Tên đăng nhập đã tồn tại";
         return View();
     }
 

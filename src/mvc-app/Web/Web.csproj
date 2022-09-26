@@ -25,44 +25,7 @@
     <Content Remove="wwwroot\fonts\fontawesome-webfont.woff" />
     <Content Remove="wwwroot\fonts\fontawesome-webfont.woff2" />
     <Content Remove="wwwroot\fonts\FontAwesome.otf" />
-    <Content Remove="wwwroot\img\banner\banner-1.jpg" />
-    <Content Remove="wwwroot\img\banner\banner-2.jpg" />
-    <Content Remove="wwwroot\img\blog\blog-1.jpg" />
-    <Content Remove="wwwroot\img\blog\blog-2.jpg" />
-    <Content Remove="wwwroot\img\blog\blog-3.jpg" />
-    <Content Remove="wwwroot\img\blog\blog-4.jpg" />
-    <Content Remove="wwwroot\img\blog\blog-5.jpg" />
-    <Content Remove="wwwroot\img\blog\blog-6.jpg" />
-    <Content Remove="wwwroot\img\blog\details\details-author.jpg" />
-    <Content Remove="wwwroot\img\blog\details\details-hero.jpg" />
-    <Content Remove="wwwroot\img\blog\details\details-pic.jpg" />
-    <Content Remove="wwwroot\img\blog\sidebar\sr-1.jpg" />
-    <Content Remove="wwwroot\img\blog\sidebar\sr-2.jpg" />
-    <Content Remove="wwwroot\img\blog\sidebar\sr-3.jpg" />
-    <Content Remove="wwwroot\img\breadcrumb.jpg" />
-    <Content Remove="wwwroot\img\cart\cart-1.jpg" />
-    <Content Remove="wwwroot\img\cart\cart-2.jpg" />
-    <Content Remove="wwwroot\img\cart\cart-3.jpg" />
-    <Content Remove="wwwroot\img\categories\cat-1.jpg" />
-    <Content Remove="wwwroot\img\categories\cat-2.jpg" />
-    <Content Remove="wwwroot\img\categories\cat-3.jpg" />
-    <Content Remove="wwwroot\img\categories\cat-4.jpg" />
-    <Content Remove="wwwroot\img\categories\cat-5.jpg" />
-    <Content Remove="wwwroot\img\featured\feature-1.jpg" />
-    <Content Remove="wwwroot\img\featured\feature-2.jpg" />
-    <Content Remove="wwwroot\img\featured\feature-3.jpg" />
-    <Content Remove="wwwroot\img\featured\feature-4.jpg" />
-    <Content Remove="wwwroot\img\featured\feature-5.jpg" />
-    <Content Remove="wwwroot\img\featured\feature-6.jpg" />
-    <Content Remove="wwwroot\img\featured\feature-7.jpg" />
-    <Content Remove="wwwroot\img\featured\feature-8.jpg" />
-    <Content Remove="wwwroot\img\hero\banner.jpg" />
-    <Content Remove="wwwroot\img\language.png" />
-    <Content Remove="wwwroot\img\latest-product\lp-1.jpg" />
-    <Content Remove="wwwroot\img\latest-product\lp-2.jpg" />
-    <Content Remove="wwwroot\img\latest-product\lp-3.jpg" />
     <Content Remove="wwwroot\img\logo.png" />
-    <Content Remove="wwwroot\img\payment-item.png" />
     <Content Remove="wwwroot\js\bootstrap.min.js" />
     <Content Remove="wwwroot\js\jquery-3.3.1.min.js" />
     <Content Remove="wwwroot\js\jquery-ui.min.js" />
@@ -118,44 +81,7 @@
     <None Include="wwwroot\fonts\fontawesome-webfont.woff" />
     <None Include="wwwroot\fonts\fontawesome-webfont.woff2" />
     <None Include="wwwroot\fonts\FontAwesome.otf" />
-    <None Include="wwwroot\img\banner\banner-1.jpg" />
-    <None Include="wwwroot\img\banner\banner-2.jpg" />
-    <None Include="wwwroot\img\blog\blog-1.jpg" />
-    <None Include="wwwroot\img\blog\blog-2.jpg" />
-    <None Include="wwwroot\img\blog\blog-3.jpg" />
-    <None Include="wwwroot\img\blog\blog-4.jpg" />
-    <None Include="wwwroot\img\blog\blog-5.jpg" />
-    <None Include="wwwroot\img\blog\blog-6.jpg" />
-    <None Include="wwwroot\img\blog\details\details-author.jpg" />
-    <None Include="wwwroot\img\blog\details\details-hero.jpg" />
-    <None Include="wwwroot\img\blog\details\details-pic.jpg" />
-    <None Include="wwwroot\img\blog\sidebar\sr-1.jpg" />
-    <None Include="wwwroot\img\blog\sidebar\sr-2.jpg" />
-    <None Include="wwwroot\img\blog\sidebar\sr-3.jpg" />
-    <None Include="wwwroot\img\breadcrumb.jpg" />
-    <None Include="wwwroot\img\cart\cart-1.jpg" />
-    <None Include="wwwroot\img\cart\cart-2.jpg" />
-    <None Include="wwwroot\img\cart\cart-3.jpg" />
-    <None Include="wwwroot\img\categories\cat-1.jpg" />
-    <None Include="wwwroot\img\categories\cat-2.jpg" />
-    <None Include="wwwroot\img\categories\cat-3.jpg" />
-    <None Include="wwwroot\img\categories\cat-4.jpg" />
-    <None Include="wwwroot\img\categories\cat-5.jpg" />
-    <None Include="wwwroot\img\featured\feature-1.jpg" />
-    <None Include="wwwroot\img\featured\feature-2.jpg" />
-    <None Include="wwwroot\img\featured\feature-3.jpg" />
-    <None Include="wwwroot\img\featured\feature-4.jpg" />
-    <None Include="wwwroot\img\featured\feature-5.jpg" />
-    <None Include="wwwroot\img\featured\feature-6.jpg" />
-    <None Include="wwwroot\img\featured\feature-7.jpg" />
-    <None Include="wwwroot\img\featured\feature-8.jpg" />
-    <None Include="wwwroot\img\hero\banner.jpg" />
-    <None Include="wwwroot\img\language.png" />
-    <None Include="wwwroot\img\latest-product\lp-1.jpg" />
-    <None Include="wwwroot\img\latest-product\lp-2.jpg" />
-    <None Include="wwwroot\img\latest-product\lp-3.jpg" />
     <None Include="wwwroot\img\logo.png" />
-    <None Include="wwwroot\img\payment-item.png" />
     <None Include="wwwroot\js\bootstrap.min.js" />
     <None Include="wwwroot\js\jquery-3.3.1.min.js" />
     <None Include="wwwroot\js\jquery-ui.min.js" />
@@ -200,6 +126,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.8">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
